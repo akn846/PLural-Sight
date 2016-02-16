@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DInerMax3000Console
+namespace DinerMax3000.Business
 {
     public class DrinksMenu:Menu
     {
