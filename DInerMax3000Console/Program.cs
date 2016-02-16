@@ -11,16 +11,16 @@ namespace DinerMax3000.Console
     {
         static void Main(string[] args)
         {
-            // Menu summerMenu = new Menu();
+            /* Menu summerMenu = new Menu();
             FoodMenu summerMenu = new FoodMenu();
             summerMenu.setMenuName("The Summer Menu");
-            /* MenuItem salmonDish = new MenuItem();
+            MenuItem salmonDish = new MenuItem();
              salmonDish.setTitle("Summer sumptious Salmon");
              salmonDish.setDescription("Salmon served with some nordik sauce");
              salmonDish.setPrice(25.00);
 
              summerMenu.Items.Add(salmonDish);
-             */
+             
 
             summerMenu.addToMenu("Sumptious Salmon", "Norwegian Salmon with local butter", 25.50);
             summerMenu.addToMenu("Steak special", "T-bone steak with proper chips", 35.40);
@@ -32,19 +32,21 @@ namespace DinerMax3000.Console
             drinks.addToMenu("Lager", "Stella Artois", 2.50);
             drinks.addToMenu("Rum", "Bacardi and Coke", 5.00);
             drinks.setDisclaimer("Don't drink and then try and fly a plane...");
+            */
+
+            List<Menu> allMenus = Menu.GetAllMenus();
 
             Orders hungryPerson = new Orders();
 
-            for (int loopCounter=0; loopCounter < summerMenu.Items.Count; loopCounter++)
+            foreach (Menu currentMenu in allMenus)
             {
-                hungryPerson.orderContents.Add(summerMenu.Items[loopCounter]);
-
+                foreach (MenuItem currentItem in currentMenu.Items)
+                {
+                    hungryPerson.orderContents.Add(currentItem);
+                }
             }
 
-            for (int loopCounter=0; loopCounter < drinks.Items.Count; loopCounter++)
-            {
-                hungryPerson.orderContents.Add(drinks.Items[loopCounter]);
-            }
+            System.Console.ReadKey();         
 
         }
     }
