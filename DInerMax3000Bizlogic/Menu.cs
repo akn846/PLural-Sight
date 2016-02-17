@@ -14,19 +14,20 @@ namespace DinerMax3000.Business
             Items = new List<MenuItem>();
         }
 
-        string name;
+        public string name {get;set;}
+
+        private int _dbID;
+
         public List<MenuItem> Items; // THis is an example of generics and defines that 'Items' will reference 
                                       // a list of MenuItem objects but has not instantiated the list - this is done
                                       // in the class constructor.
-        public void setMenuName (string textName)
+       
+        public void saveNewMenuItem(string Name, string Description, double Price)
         {
-            this.name = textName;
-        }                        
-        
-        public string getMenuName()
-        {
-            return this.name;
-        }    
+            MenuItemTableAdapter taMenuItem = new MenuItemTableAdapter();
+            taMenuItem.InsertMenuItem(Name, Description, Price, _dbID);
+        }
+
 
         public static List<Menu> GetAllMenus()
         {
@@ -39,6 +40,7 @@ namespace DinerMax3000.Business
             {
                 Menu currentMenu = new Menu();
                 currentMenu.name = menuRow.Name;
+                currentMenu._dbID = menuRow.ID;
 
                 var rsMenuItems = taMenuItem.GetMenuItemsByMenuId(menuRow.ID);
                 foreach (dsDinermax3000.MenuItemRow menuItemRow in rsMenuItems.Rows)
