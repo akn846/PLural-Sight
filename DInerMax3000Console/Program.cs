@@ -46,6 +46,10 @@ namespace DinerMax3000.Console
                 }
             }
 
+            Menu firstMenu = allMenus[0];
+            firstMenu.saveNewMenuItem("Pie", "Steak and Ale pie", 5.00);
+            List<Menu> menusFromDB = Menu.GetAllMenus();
+
             System.Console.ReadKey();         
 
         }

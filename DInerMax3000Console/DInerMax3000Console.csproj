@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="diner2000.bak" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DInerMax3000Bizlogic\DInerMax3000Bizlogic.csproj">
